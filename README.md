@@ -1,9 +1,9 @@
 ---
-name: Your Full Name
-username: Your GitHub Username
-instructor: Your Instructor's Name
+name: Stewart Dent
+username: stewdent
+instructor: Dan Gilleland
 course: SDEV1150 
-section: Your Section Number for This Course
+section: A02
 ---
 
 # SDEV1150 Student Workbook
