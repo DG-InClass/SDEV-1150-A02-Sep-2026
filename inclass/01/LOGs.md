@@ -5,6 +5,7 @@
 1. Identify where to find the course outline, schedule, and other important documents
 1. Describe the marking scheme for this course
 1. Identify the best way to contact your instructor outside of class
+   1. My instructor responds to messages in **MS Teams**
 1. Identify the expectations of your instructor regarding attendance, participation, etc.
 1. Install the required software for this course (Visual Studio Code, etc.)
 1. Ensure you are signed up for the required services related to this course (GitHub, etc.)
