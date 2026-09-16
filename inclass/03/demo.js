@@ -46,3 +46,18 @@ console.log(`${facilitator.firstName} ${facilitator.lastName} is facilitating.`)
 console.log(`\tContact: ${facilitator.email}`);
 console.log(`\tActive facilitator: ${facilitator.active}`);
 console.log();
+
+console.log('Objects are dynamic');
+console.log('-------------------');
+
+workshop.facilitator = `${facilitator.firstName} ${facilitator.lastName}`;
+workshop.waitlist = 3;
+workshop.registered = workshop.registered + 2;
+
+console.log(`Facilitator added to workshop: ${workshop.facilitator}`);
+console.log(`Updated registrations: ${workshop.registered}`);
+console.log(`Waitlist count: ${workshop.waitlist}`);
+console.log(workshop);
+console.log();
+
+// TODO: Next Class - Built-in Objects
