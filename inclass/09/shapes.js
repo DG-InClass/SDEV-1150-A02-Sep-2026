@@ -18,6 +18,13 @@ export function Shape(type) {
         let result = undefined;
         if(this.dimensions) {
             // TODO: Base the calculations on the dimensions
+            if (this.type === 'circle') {
+                result = Math.PI * this.dimensions.radius ** 2;
+            } else if (this.type === 'square') {
+                result =this.dimensions.length ** 2;
+            } else if (this.type === 'triangle') {
+                result = this.dimensions.base * this.dimensions.height / 2;
+            }
         }
         return result;
     }
