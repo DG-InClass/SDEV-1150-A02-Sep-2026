@@ -1,7 +1,19 @@
+/**
+ * The shape types supported by this module.
+ * @type {string[]}
+ */
 export const supportedShapes = ['circle', 'square', 'triangle'];
 
+/**
+ * Creates a shape that can store dimensions and calculate area.
+ * @param {string} type - The kind of shape to create
+ */
 export function Shape(type) {
     this.type = type;
+    /**
+     * Calculates the area of the shape.
+     * @returns {number | undefined}- The area, or undefined when dimensions are missing.
+     */
     this.area = function() {
         let result = undefined;
         if(this.dimensions) {
@@ -11,11 +23,40 @@ export function Shape(type) {
     }
     this.dimensions = undefined;
 
+    /**
+     * Stores the dimensions needed for this shape.
+     * @param {object} dimensions - The dimensions for the current shape.
+     */
     this.assignDimensions = function(dimensions) {
         // Note: We'll accept the following
         // - `radius` for circles
         // - `length` for squares
         // - `base` and `height` for triangles 
+        // The following if check is a Guard Clause
+        if (!supportedShapes.includes(this.type)) {
+            // Notice the ! operator in the conditional expression
+            this.dimensions = undefined; // undefined is a keyword
+            console.error(`${this.type} is not a supported shape.`);
+            return;
+        }
+
         // TODO: Process the inputs; invalid inputs will result in an undefined set of dimensions and an error message.
+        if (this.type === 'circle' && typeof dimensions.radius === 'number') {
+            this.dimensions = {
+                radius: dimensions.radius
+            };
+        } else if (this.type === 'square' && typeof dimensions.length === 'number') {
+            this.dimensions = {
+                length: dimensions.length
+            };
+        } else if (this.type === 'triangle' && typeof dimensions.base === 'number' && typeof dimensions.height === 'number') {
+            this.dimensions = {
+                base: dimensions.base,
+                height: dimensions.height
+            };
+        } else {
+            this.dimensions = undefined;
+            console.error(`Invalid dimensions for ${this.type}.`);
+        }
     }
 }
