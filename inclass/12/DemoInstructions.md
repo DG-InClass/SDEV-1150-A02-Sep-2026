@@ -72,7 +72,7 @@ We're going back to a stand-alone JavaScript file for this lesson. There is no H
     The starter script confirms that the file is running.
 
     ```js title="~/inclass/12/demo.js"
-    console.log('Lesson 13 demo.js has loaded');
+    console.log('Lesson 12 demo.js has loaded');
     console.log('===============================');
     console.log();
     ```
@@ -86,7 +86,7 @@ Use a `while` loop when a condition controls how long repetition continues.
 1. Add values for a savings goal.
 
     ```diff lang="js" title="~/inclass/12/demo.js"
-      console.log('Lesson 13 demo.js has loaded');
+      console.log('Lesson 12 demo.js has loaded');
       console.log('===============================');
       console.log();
     +
