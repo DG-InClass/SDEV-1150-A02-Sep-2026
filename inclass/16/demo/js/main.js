@@ -25,7 +25,11 @@ form.addEventListener('input', (event) => {
 });
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault();
+  event.preventDefault(); // 📍 Remember this line of code so that the browser does NOT submit and refresh the page!
+  const theForm= event.target; // The target of any submit event is the <form>
+  console.log(theForm);
+  const controls= theForm.elements; // Look a lot like a Dictionary
+  console.log(controls);  
 
   // TODO: Validate the form before processing the submission.
   // TODO: If the form is valid, serialize it and echo the result.
