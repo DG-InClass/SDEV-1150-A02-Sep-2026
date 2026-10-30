@@ -21,3 +21,7 @@ button {
     @apply rounded-sm border-2 border-slate-600 px-2 py-1 bg-slate-400 text-white;
 }
 ```
+
+## Understand the Data Types
+
+![alt text](image.png)
