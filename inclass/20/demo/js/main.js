@@ -33,8 +33,20 @@ function clearJacketObjectUrl() {
 }
 
 function synthesizeCatalog(books, authors, reviews) {
-  // TODO: Join books to authors with authorId.
-  // TODO: Count reviews by bookId.
+  return books.map((book) => {
+    // TODO: Join books to authors with authorId.
+    // Each book has a single author, so we'll find them
+    const author = authors.find((item) => item.id === book.authorId);
+    // TODO: Count reviews by bookId.
+    // Each book can have many reivews, so we'll get them all
+    const allReviews = reviews.filter((review) => review.bookId === Number(book.id));
+
+    return {
+      ...book, // keep all the book details
+      authorName: author?.name ?? 'Unknown author',
+      reviewCount: allReviews.length, // gets the count
+    }
+  });
   // TODO: Return display objects for the book list.
 }
 
@@ -46,7 +58,16 @@ function renderCatalog(catalog) {
 
 async function loadCatalog() {
   // TODO: Load books, authors, and reviews with Promise.all().
+  const [books, authors, reviews] = await Promise.all([
+    // All these fetch calls will be dispatched (sent) at once
+    fetchJson(buildEndpoint('/books')),
+    fetchJson(buildEndpoint('/authors')),
+    fetchJson(buildEndpoint('/reviews')),
+  ]);
+  // The line above will await until ALL of the Promises are fulfilled.
   // TODO: Synthesize the API responses into one catalog list.
+  const catalog = synthesizeCatalog(books, authors, reviews);
+
   // TODO: Render the catalog and select the first book.
   // TODO: Show loading, success, empty, and error states.
 }
